@@ -14,7 +14,27 @@
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     </head>
     <body>
-        <h1>Test</h1>
+        <div class="--grainy-background">
+            <svg 
+            viewBox="0 0 1920 1080"
+            xmlns='http://www.w3.org/2000/svg'>
+
+            <filter id='noiseFilter'>
+            <feTurbulence 
+                type='fractalNoise' 
+                baseFrequency='0.65' 
+                numOctaves='3' 
+                stitchTiles='stitch' />
+            </filter>
+            <rect
+            width='100%' 
+            height='100%' 
+            filter='url(#noiseFilter)' />
+            </svg>
+        </div>
+        <header>
+            <h1>The Progression of the Automobile<br>Through Time</h1>
+        </header>
     </body>
     <script src="lottie.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
