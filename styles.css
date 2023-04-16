@@ -1,0 +1,108 @@
+:root {
+    --font1: 'Rubik', sans-serif;
+    --font2: 'PT Sans Caption', sans-serif;
+    --f1: 6.854rem; /* 109.66px */
+    --f2: 4.236rem; /* 67.77px */
+    --f3: 2.618rem; /* 41.89px */
+    --f4: 1.618rem; /* 25.89px */
+    --fbase: 1.25rem; /* 20.00px */
+    --fsmall: 0.618rem; /* 12.25px */
+    --dark: #444144;
+    --light: #F7FAF9;
+    --primary: #93B4AB;
+    --accent1: #6873BA;
+    --accent2: #E27E72;
+    --altAccent1: #2EF0F0;
+    --altAccent2: #C995DB;
+}
+
+/* Global */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+    width: 100%;
+    font-size: clamp(1.25em, .4167vw + .8875em, 1.125em);
+    font-family: 'PT Sans Caption', sans-serif;
+    line-height: 1.75;
+    scroll-behavior: smooth;
+}
+
+body {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: var(--light);
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font1);
+    line-height: 1.3;
+}
+
+h1 {
+    margin-top: 0;
+    margin-bottom: 1.2rem;
+    font-size: var(--f1);
+    font-weight: 600;
+  }
+  
+h2 {
+    margin-top: 0;
+    margin-bottom: 1.2rem;
+    font-size: var(--f2);
+}
+  
+h3 {
+    margin-top: 0;
+    margin-bottom: 1.2rem;
+    font-size: var(--f3);
+}
+
+h4 {
+    margin-top: 0;
+    margin-bottom: 1.2rem;
+    font-size: var(--f4);
+}
+  
+p {
+    margin-top: 0;
+    margin-bottom: 1.2rem;
+    font-family: var(--font2);
+}
+  
+small, .text_small {
+    margin-top: 0;
+    margin-bottom: 1.2rem;
+    font-size: var(--fsmall);
+    font-family: var(--font2);
+}
+
+a {
+    text-decoration: none;
+}
+
+input {
+    border: none;
+}
+
+fieldset {
+    border: none;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+}
+
+svg {
+    width: 100%;
+    height: 100%;
+}
+
