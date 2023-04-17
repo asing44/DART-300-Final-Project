@@ -137,7 +137,7 @@ header {
     position: absolute;
     display: contents;
     content: attr(data-name);
-    top: 0;
+    top: -0.40rem;
     height: calc(var(--font1));
     transform-origin: center;
     opacity: 50%;
@@ -156,7 +156,7 @@ header {
     border-radius: 50%;
     opacity: 0%;
     z-index: -1;
-    animation: displayI 5s infinite 4s;
+    animation: displayI 5s infinite 2s;
 }
 
 @keyframes rotateI {
