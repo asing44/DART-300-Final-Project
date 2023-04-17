@@ -190,7 +190,6 @@ main {
 }
 
 .--line {
-    position: relative;
     height: 0;
     min-width: 25%;
     max-width: 40%;
@@ -207,6 +206,10 @@ div[class*="--right"] {
 }
 
 .--display-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 0;
     grid-area: 2 / 1 / 3 / 4;
 }
 
@@ -218,17 +221,27 @@ div[class*="--right"] {
     grid-area: 2 / 1;
 }
 
-.--title {
+.--title-container {
     position: relative;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     grid-area: 1 / 2;
+}
+
+.--title {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
     text-align: center;
 }
 
 .--title-date {
+    margin: 0;
+    font-size: var(--f3); 
 }
 
 .--timeline {
