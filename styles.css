@@ -36,7 +36,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: var(--light);
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 h1, h2, h3, h4 {
@@ -154,10 +154,6 @@ svg {
     }
 }
 
-.--lock-scroll {
-    overflow: hidden;
-}
-
 /* Main */
 
 .--main-video-container {
@@ -192,12 +188,13 @@ svg {
     object-fit: contain;
     height: 100vh;
     width: 100vw;
+    background-color: transparent;
 }
 
 main {
     display: grid;
     position: absolute;
-    bottom: 10%;
+    bottom: 15.5%;
     left: 0;
     min-height: 192px;
     width: 100%;
@@ -222,6 +219,16 @@ main div {
     position: absolute;
 }
 
+main div:nth-of-type(n + 2) img {
+    transition: all 500ms ease-in-out; /* custom */
+    cursor: pointer;
+}
+
+main div:nth-of-type(n + 2) img:hover {
+    transform: scale(120%);
+    cursor: pointer;
+}
+
 .--fast-forward {
     grid-area: 1 / 5;
 }
@@ -231,9 +238,9 @@ main div {
 }
 
 .--fast-back {
-    grid-area: 1 / 2;
+    grid-area: 1 / 1;
 }
 
 .--back {
-    grid-area: 1 / 1;
+    grid-area: 1 / 2;
 }
