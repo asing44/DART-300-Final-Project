@@ -1,48 +1,87 @@
-const titleVideo = document.getElementsByTagName("video")[0];
-const titleVideoContainer = document.getElementById("title_intro");
-const mainContainer = document.getElementsByClassName("--main-video-container")[0];
-const mainVideo = document.getElementById("main_video");
+gsap.registerPlugin(TextPlugin, EasePack);
 
-const timeline = document.getElementById("timeline_elements");
-
-var currentIndex = 0;
-
-titleVideo.onended = function() {
-    titleVideoContainer.classList.add("--video-end");
-    const c = document.getElementsByClassName("--controls");
-    for (i in c) {
-        if (c[i].nodeName) {
-            c[i].onclick = e => {
-                if (e.target.classList.contains("--f")) {
-                    if (currentIndex < 9) {
-                        currentIndex += 1;
-                    } else {
-                        currentIndex = 0;
-                    }
-                } else if (e.target.classList.contains("--b")) {
-                    if (currentIndex > 0) {
-                        currentIndex += -1;
-                    } else {
-                        currentIndex = 9;
-                    }
-                }
-                console.log(currentIndex);
-
-                mainVideo.play();
-                setTimeout(() => {
-                    mainVideo.pause();
-                }, 4160);
-            }
-        }
-    }
-};
+const introVideo = document.getElementById("intro_video");
+const introVideoWrap = document.getElementById("title_intro");
+const h1Wrap = document.getElementsByClassName("h1-wrap")[0];
 
 window.onload = function() {
-    titleVideo.classList.add("--video-start");
-    mainContainer.classList.add("--fade-opacity-in");
-    mainVideo.classList.add("--fade-opacity-in");
-    timeline.classList.add("--fade-opacity-in");
+    introVideo.classList.add("--video-start");
     setTimeout(() => {
-        titleVideo.play();
+        introVideo.play();
     }, 100);
 }
+
+let introText = gsap.timeline({autoRemoveChildren: true}).pause();
+
+introVideo.onended = function() {
+    introVideoWrap.style.display = "none";
+    introVideo.classList.remove("--video-start");
+    introVideo.classList.add("--video-end");
+    introText.play();
+}
+
+const b = document.querySelectorAll("span.beginning")[0];
+const t = document.querySelectorAll("span.there")[0];
+const a = document.querySelectorAll("span.and")[0];
+const c = document.querySelectorAll("span.canoe")[0];
+const canoe = document.getElementsByClassName("theCanoe")[0];
+
+introText.to(".beginning", {
+    duration: 4,
+    opacity: 100,
+    scale: 2,
+    ease: "power1.out"
+}).to(".beginning", {
+    duration: 1,
+    opacity: 0,
+    ease: "expo.inOut",
+    onComplete: () => {
+        b.style.display = "none";
+        t.style.display = "block";
+    }
+}, ">-=1")
+
+introText.to(".there", {
+    duration: 2,
+    opacity: 100,
+    scale: 2,
+    y: "+=100",
+    ease: "power1.out"
+}).to(".there", {
+    duration: 1,
+    opacity: 0,
+    ease: "expo.inOut",
+    onComplete: () => {
+        t.style.display = "none";
+        a.style.display = "block";
+        canoe.classList.remove("hidden");
+    }
+}, ">-=1");
+
+introText.set(".and", {
+    x: "-200%"
+}).to(".and", {
+    duration: 2,
+    x: "250%",
+    ease: "slow(0.7, 0.7, false)",
+    onComplete: () => {
+        a.style.display = "none";
+        c.style.display = "block";
+    }
+})
+
+introText.set(".canoe", {
+    scale: 0
+}).to(".canoe", {
+    duration: 2,
+    scale: 4,
+    ease: "power1.in"
+})
+
+introText.to(".h1-wrap", {
+    duration: 2,
+    y: "-100%",
+    onComplete: () => {
+        h1Wrap.style.display = "none";
+    }
+}, ">+=1")
