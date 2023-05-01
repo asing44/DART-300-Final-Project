@@ -91,7 +91,7 @@ var slides=document.querySelectorAll('.slide'),tl=gsap.timeline({paused:true});
 for(var i=slides.length;i--;){
     if(i>0){
       if(i!=slides.length-1){tl.addPause()}
-        tl.to(slides[i],0.5,{scale:.5,ease:Back.easeInOut})
+        tl.to(slides[i],0.5,{scale:0.5,ease:Back.easeInOut})
         .to(slides[i],0.7,{xPercent:-100},'L'+i)
         .from(slides[i-1],0.7,{xPercent:100},'L'+i)
         .set(slides[i],{zIndex:1-i}).set(slides[i-1],{zIndex:slides.length})

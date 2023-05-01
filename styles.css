@@ -178,7 +178,7 @@ main {
     opacity: 100%;
     background-color: var(--dark);
     color: var(--light);
-    z-index: 50;
+    z-index: 75;
 }
 
 .h1-wrap.active {
