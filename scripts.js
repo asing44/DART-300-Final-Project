@@ -105,3 +105,50 @@ function GO(e){
 
 document.getElementsByClassName('right')[0].addEventListener("click",function(){GO(-1)});
 document.getElementsByClassName('left')[0].addEventListener("click",function(){GO(1)});
+
+var images = document.getElementsByClassName("image");
+
+let t1 = gsap.timeline({paused:true})
+.from(".info", {
+    y: "+=120%"
+})
+.from(".info-wrap", {
+    y: "+=100%"
+})
+.to(".info-overlay", {
+    duration: 1,
+    opacity: 0.8
+})
+.to(".info-wrap", {
+    duration: 2,
+    y: "0",
+    ease: "power2.out"
+})
+.to(".info", {
+    duration: 1,
+    y: "0"
+}, "-=0.5");
+
+
+for(i = 0; i < images.length; i++) {
+    images[i].addEventListener("click", (e) => {
+        var el = e.target;
+        el.classList.add("clicked")
+        console.log(el)
+        document.getElementsByClassName("info-img")[0].src = el.src;
+        document.getElementsByClassName("info-title")[0].innerHTML = el.dataset.title;
+        document.getElementsByClassName("info-date")[0].innerHTML = el.dataset.date;
+        document.getElementsByClassName("info-text")[0].innerHTML = el.dataset.text;
+        t1.play();
+    });
+}
+
+const infoPageOverlay = document.getElementsByClassName("info-overlay")[0];
+
+infoPageOverlay.addEventListener("click", () => {
+    for(i = 0; i < images.length; i++) {
+        if(images[i].classList.contains("clicked")) {
+            t1.reverse();
+        }
+    }
+});
