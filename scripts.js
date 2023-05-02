@@ -103,8 +103,14 @@ function GO(e){
   if(SD<0){tl.play()}else{tl.reverse()};
 };
 
-document.getElementsByClassName('right')[0].addEventListener("click",function(){GO(-1)});
-document.getElementsByClassName('left')[0].addEventListener("click",function(){GO(1)});
+document.getElementsByClassName('right')[0].addEventListener("click",function(){
+    GO(-1)
+
+});
+document.getElementsByClassName('left')[0].addEventListener("click",function(){
+    GO(1)
+
+});
 
 var images = document.getElementsByClassName("image");
 
@@ -134,7 +140,6 @@ for(i = 0; i < images.length; i++) {
     images[i].addEventListener("click", (e) => {
         var el = e.target;
         el.classList.add("clicked")
-        console.log(el)
         document.getElementsByClassName("info-img")[0].src = el.src;
         document.getElementsByClassName("info-title")[0].innerHTML = el.dataset.title;
         document.getElementsByClassName("info-date")[0].innerHTML = el.dataset.date;
@@ -152,3 +157,6 @@ infoPageOverlay.addEventListener("click", () => {
         }
     }
 });
+
+
+
